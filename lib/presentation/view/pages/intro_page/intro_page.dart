@@ -174,7 +174,7 @@ class IntroPage extends StatelessWidget {
                             width: size.width * 0.05,
                           ),
                           const Text(
-                            "Remembers what user said\nearlier in the conversation",
+                            "Allows user to provide follow-up\ncorrections",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
@@ -214,7 +214,7 @@ class IntroPage extends StatelessWidget {
                             width: size.width * 0.05,
                           ),
                           const Text(
-                            "Remembers what user said\nearlier in the conversation",
+                            "Trained to decline\ninappropriate requests",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
@@ -226,7 +226,12 @@ class IntroPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.instance.homepage,
+                      );
+                    },
                     child: Container(
                       height: size.height * 0.07,
                       width: size.width * 0.8,
@@ -244,7 +249,7 @@ class IntroPage extends StatelessWidget {
                       ),
                       child: const Center(
                         child: Text(
-                          "Login With Google",
+                          "Get Started",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,

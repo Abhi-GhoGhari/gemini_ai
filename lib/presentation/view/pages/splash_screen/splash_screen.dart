@@ -13,11 +13,21 @@ class SplashScreen extends StatelessWidget {
       );
     });
 
-    return const Scaffold(
+    Size size = MediaQuery.sizeOf(context);
+
+    return Scaffold(
       body: Center(
-        child: Image(
-          image: AssetImage("lib/assets/logo/logo2.png"),
-          fit: BoxFit.cover,
+        child: Container(
+          height: size.height * 0.2,
+          width: size.width * 0.5,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.red,
+            image: DecorationImage(
+              image: AssetImage("lib/assets/logo/logo2.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
       ),
     );

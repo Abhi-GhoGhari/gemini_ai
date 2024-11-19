@@ -10,7 +10,7 @@ class GeminiHelper {
 
   Map<String, String> header = {"Content-Type": "application/json"};
 
-  Future<void> fetchData({required String prompt}) async {
+  Future<String> fetchData({required String prompt}) async {
     var body = {
       {
         "contents": [
@@ -28,10 +28,17 @@ class GeminiHelper {
         headers: header,
         body: jsonEncode(body),
       );
+
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+
+        return data['candidates'][0]['content']['parts'][0]['text'].toString();
+      }
     } catch (e) {
       print(
         "Gemini Call Error$e",
       );
     }
+    return "No Data Fetch !!!\nTry Again later";
   }
 }
