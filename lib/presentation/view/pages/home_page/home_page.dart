@@ -124,12 +124,16 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, index) {
                           GeminiModel data = controller.dataList[index];
                           return Card(
+                            color: Colors.white,
                             child: ListTile(
-                              subtitle: Text("Prompt${data.prompt.value}"),
+                              subtitle: Text(
+                                "Prompt: ${data.prompt.value}",
+                                style: const TextStyle(color: Colors.white),
+                              ),
                               title: Text(
                                 data.responce.value,
                                 style: const TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -141,9 +145,21 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.send_outlined,
+                        color: Colors.black,
+                      ),
                     ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                    focusColor: Colors.white,
+                    hintText: "Type something...",
+                    hintStyle: const TextStyle(color: Colors.black),
                   ),
                   onFieldSubmitted: (value) async {
                     if (value.toString().trim().isNotEmpty) {
